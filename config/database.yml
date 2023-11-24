@@ -1,0 +1,19 @@
+
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  port: 5433
+  username: wlapp_db_admin
+  password:  wlapp-db-pas
+  host: localhost
+
+development:
+  <<: *default
+  database: weight_loss_app_development
+
+test:
+  <<: *default
+  database: weight_loss_app_test
+
+
