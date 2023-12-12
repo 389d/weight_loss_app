@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your App</title>
+  <script>
+    // Функция для отправки DELETE-запросов через AJAX
+    function sendDeleteRequest(url) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('DELETE', url, true);
+      xhr.setRequestHeader('X-CSRF-Token', '<%= form_authenticity_token.to_s %>');
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          // Обработка успешного ответа
+          console.log('DELETE request succeeded');
+          window.location.href = 'http://localhost:3000/'; // Перенаправление на домашнюю страницу
+        } else {
+          // Обработка ошибки
+          console.error('DELETE request failed');
+		  window.location.href = 'http://localhost:3000/'; // Перенаправление на домашнюю страницу
+        }
+      };
+      xhr.onerror = function() {
+        console.error('DELETE request failed');
+      };
+      xhr.send();
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <nav>
+      <% if user_signed_in? %>
+		<a href="http://localhost:3000/users/client">Clients</a>
+        <%= link_to 'Edit Profile', edit_user_registration_path %>
+        <a href="http://localhost:3000/" onclick="sendDeleteRequest('<%= destroy_user_session_path %>'); return false;">Sign Out</a>
+      <% else %>
+        <%= link_to 'Sign In', new_user_session_path %>
+        <%= link_to 'Sign Up', new_user_registration_path %>
+      <% end %>
+    </nav>
+  </header>
+
+  <%= yield %>
+
+  <footer>
+    <!-- footer content -->
+  </footer>
+</body>
+</html>
