@@ -36,4 +36,4 @@ gem "webdrivers", "= 5.3.0"
 end
 
 gem "tzinfo-data"
-
+gem "devise"
