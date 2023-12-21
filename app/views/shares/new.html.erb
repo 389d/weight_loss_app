@@ -1,0 +1,13 @@
+ <p>Текущий пользователь: <%= current_user.first_name %></p>
+  <p>Роль: <%= current_user.role %></p>
+
+  <% if current_user.role == "broker" %>
+<h1>Новый объект</h1>
+
+<%= render 'form', share: @share %>
+
+<% else %>
+  <h1>Список акций доступен только пользователям с ролью broker или buyer</h1>
+<% end %>
+
+<p><%= link_to 'Назад', shares_path %></p>
