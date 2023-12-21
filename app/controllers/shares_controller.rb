@@ -39,14 +39,14 @@ class SharesController < ApplicationController
     @share = Share.find(params[:id])
     @share.owner = current_user.first_name
     @share.save
-    redirect_to shares_path, notice: 'Акция успешно куплена.'
+    redirect_to shares_path, notice: 'Квартира успешно куплена.'
   end
 
   def sell
     @share = Share.find(params[:id])
     @share.owner = nil
     @share.save
-    redirect_to shares_path, notice: 'Акция успешно продана.'
+    redirect_to shares_path, notice: 'Дом успешно продан.'
   end
 
   def destroy
