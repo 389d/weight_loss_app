@@ -34,7 +34,7 @@
   <p>Текущий пользователь: <%= current_user.first_name %></p>
   <p>Роль: <%= current_user.role %></p>
   <% if current_user.role == "broker" %>
-    <h2>Добавление новой акции</h2>
+    <h2>Добавление новой недвижимости </h2>
     <%= form_with model: @share, url: shares_path do |form| %>
       <div>
         <%= form.label :name %>
