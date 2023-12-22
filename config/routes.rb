@@ -1,30 +1,10 @@
 Rails.application.routes.draw do
-  get 'messages/create'
-  # Другие маршруты
-  get "/about", to: "pages#about", as: :about
-  get "/contact", to: "pages#contact", as: :contact
+  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Главная страница
-  root to: "home#index"
+  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
+  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  get "up" => "rails/health#show", as: :rails_health_check
 
-  # Devise маршруты
-  devise_for :users, controllers: { registrations: 'registrations' }
-
-  # Перенаправление залогиненных пользователей на страницу редактирования аккаунта
-  authenticated :user do
-    get '/users/client', to: 'clients#index', as: :authenticated_clients
-    resources :messages, only: [:create] # Добавьте эту строку для контроллера сообщений
-  end
-
-  # Перенаправление незалогиненных пользователей на страницу входа
-  unauthenticated :user do
-    root 'devise/sessions#new', as: :unauthenticated_root
-  end
-
-  # Маршруты для других ресурсов
-  resources :articles
-  resources :products
-
-  # Маршруты для клиентов
-  resources :clients, only: [:index, :new, :create]
+  # Defines the root path route ("/")
+  # root "posts#index"
 end
