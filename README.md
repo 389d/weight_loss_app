@@ -1,3 +1,24 @@
-# weight_loss_app
- 
-This App is created in order to study development using the Ruby on Rails framework. By design, this is an App that should help people lose weight and become healthier, based on the principles of healthy diet.
+# README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
