@@ -1,6 +1,6 @@
 class SharesController < ApplicationController
   def index
-    @shares = Share.all # Получение списка всех домов
+    @shares = Share.all # Получение списка всех акций
   end
 
   def show
@@ -8,15 +8,15 @@ class SharesController < ApplicationController
   end
 
   def new
-    @share = Share.new # Создание новой статьи про дом
+    @share = Share.new # Создание нового экземпляра акции
   end
 
   def create
-    @share = Share.new(share_param) # Создание новой статьи дома с переданными параметрами
+    @share = Share.new(share_param) # Создание новой акции с переданными параметрами
 
     
     if @share.save
-      redirect_to @share, notice: 'Статья о недвижимости успешно создана.' # Перенаправление на страницу списка домов с сообщением об успехе
+      redirect_to @share, notice: 'Акция успешно создана.' # Перенаправление на страницу списка акций с сообщением об успехе
     else
       render :new, status: 422
     end
@@ -29,7 +29,7 @@ class SharesController < ApplicationController
   def update
     @share = Share.find(params[:id])
     if @share.update(share_params)
-      redirect_to @share, notice: 'Статья о недвижимости успешно создана.'
+      redirect_to @share, notice: 'Акция успешно создана.'
     else
       render :edit
     end
@@ -39,14 +39,14 @@ class SharesController < ApplicationController
     @share = Share.find(params[:id])
     @share.owner = current_user.first_name
     @share.save
-    redirect_to shares_path, notice: 'Квартира успешно куплена.'
+    redirect_to shares_path, notice: 'Акция успешно куплена.'
   end
 
   def sell
     @share = Share.find(params[:id])
     @share.owner = nil
     @share.save
-    redirect_to shares_path, notice: 'Дом успешно продан.'
+    redirect_to shares_path, notice: 'Акция успешно продана.'
   end
 
   def destroy
