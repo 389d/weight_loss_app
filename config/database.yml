@@ -23,7 +23,7 @@ default: &default
 
 development: &development
   <<: *default
-  database: wlapp_db_admin
+  database: postgres
   username: wlapp_db_admin
   password: wlapp-db-pas
   host: localhost
