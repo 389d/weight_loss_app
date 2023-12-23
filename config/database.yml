@@ -20,15 +20,14 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: 1
-  host: localhost
-   port: 4624
 
-development:
+development: &development
   <<: *default
-  database: postgres
-  password: 1
+  database: wlapp_db_admin
+  username: wlapp_db_admin
+  password: wlapp-db-pas
+  host: localhost
+  
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -61,9 +60,8 @@ development:
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
-  <<: *default
-  database: postgres
-  password: 1
+  <<: *development
+  database: tech_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -85,8 +83,3 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
-production:
-  <<: *default
-  database: postgres
-  username: postgres
-  password: 1
