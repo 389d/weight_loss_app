@@ -1,6 +1,6 @@
 class SharesController < ApplicationController
   def index
-    @shares = Share.all # Получение списка всех акций
+    @shares = Share.all # Получение списка всех Недвижимости
   end
 
   def show
@@ -8,15 +8,15 @@ class SharesController < ApplicationController
   end
 
   def new
-    @share = Share.new # Создание нового экземпляра акции
+    @share = Share.new # Создание нового экземпляра Недвижимости
   end
 
   def create
-    @share = Share.new(share_param) # Создание новой акции с переданными параметрами
+    @share = Share.new(share_param) # Создание новой Недвижимости с переданными параметрами
 
     
     if @share.save
-      redirect_to @share, notice: 'Акция успешно создана.' # Перенаправление на страницу списка акций с сообщением об успехе
+      redirect_to @share, notice: 'Недвижимости успешно создана.' # Перенаправление на страницу списка акций с сообщением об успехе
     else
       render :new, status: 422
     end
