@@ -1,30 +1,37 @@
-<% if current_user.role == "broker" || current_user.role == "buyer" %>
-  <h1>Список недвижимости</h1>
-  <ul>
+<% if can? :read, Share %>
+  <h1>Список акций</h1>
+id пользователя: <%= current_user.id %><ul>
     <% @shares.each do |share| %>
-	<% if share.owner.blank? || current_user.role == "broker"%>
+	<% if share.owner.blank? || current_user.role == "broker"  %>
       <li>
         
           name: <%= share.name %> <br>
           cost: <%= share.cost %> <br>
-          owner: <%= share.owner %><br>
-          <% if current_user.role == "broker" %>
+          
+		  <% if share.owner.blank?%>
+		  owner: <br>
+		  <% else %>
+		  <% user = User.find_by(id: share.owner) %>
+		  owner: <%= user.first_name %><br>
+		  <% end %>
+          <% if can? :edit, Share %>
             <td><%= link_to 'Просмотреть', share %></td>
             <td><%= link_to 'Редактировать', edit_share_path(share) %></td>
             <%= button_to 'Удалить', share, method: :delete, data: { confirm: 'Вы уверены?' } %>
           <% end %>
-          <% if current_user.role == "buyer" %>
+          <% if can? :trade, Share %>
             <%= form_with url: { action: "buy", id: share.id } do |form| %>
-              <%= form.hidden_field :share_id, value: share.id %>
-              <%= form.submit 'Купить' %>
-              <%= form.hidden_field :buyer_name, value: current_user.first_name %>
-            <% end %>
+            <%= form.hidden_field :share_id, value: share.id %>
+            <%= form.submit 'Купить' %>
+            <%= form.hidden_field :buyer_name, value: current_user.id %>
           <% end %>
+    <% end %>
 		  <% end %>
-        <% if share.owner == current_user.first_name %>
+        <% if share.owner.to_i == current_user.id.to_i && can?(:trade, Share) %> %>
           name: <%= share.name %> <br>
           cost: <%= share.cost %> <br>
-          owner: <%= share.owner %><br>
+		  <% user = User.find_by(id: share.owner) %>
+          owner: <%= user.first_name %><br>
           <%= button_to 'Продать', { action: "sell", id: share.id }, method: :put %>
         
 		<% end %>
@@ -33,8 +40,8 @@
   </ul>
   <p>Текущий пользователь: <%= current_user.first_name %></p>
   <p>Роль: <%= current_user.role %></p>
-  <% if current_user.role == "broker" %>
-    <h2>Добавление новой недвижимости</h2>
+  <% if can? :edit, Share %>
+    <h2>Добавление новой акции</h2>
     <%= form_with model: @share, url: shares_path do |form| %>
       <div>
         <%= form.label :name %>
@@ -50,5 +57,5 @@
     <% end %>
   <% end %>
 <% else %>
-  <h1>Список домов доступен только пользователям с ролью broker или buyer</h1>
+  <h1>Список акций доступен только пользователям с ролью broker или buyer</h1>
 <% end %>

@@ -5,10 +5,12 @@ class Ability
   def initialize(user)
     return unless user.present?
 
-    if user.admin?
-      can :manage, Client
-    elsif user.support?
-      can :create, Message
+    if user.role == "broker"
+      can :edit, Share
+	  can :read, Share
+    elsif user.role == "buyer"
+      can :trade, Share
+	  can :read, Share
     end
   end
 end

@@ -1,7 +1,11 @@
-<h1>Информация об объектах</h1>
+<% if can? :edit, Share %>
+<h1>Информация об акции</h1>
 
 <p><strong>Название:</strong> <%= @share.name %></p>
 <p><strong>Описание:</strong> <%= @share.cost %></p>
 
 <p><%= link_to 'Редактировать', edit_share_path(@share) %></p>
 <p><%= link_to 'Назад', share_path %></p>
+	<% else %>
+	<h1>Страница доступна только Брокеру</h1>
+<% end %>
