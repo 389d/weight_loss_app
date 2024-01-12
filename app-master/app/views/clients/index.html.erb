@@ -1,0 +1,45 @@
+<% if current_user.role == "admin" ||current_user.role == "support" %>
+<h1>Список клиентов</h1>
+<ul>
+  <% @clients.each do |client| %>
+    <li>
+      name: <%= client.name %> <br>
+      email: <%= client.email %><br>
+      phone: <%= client.phone %>
+<% if current_user.role == "support" %>
+  <%= form_with url: messages_path do |form| %>
+    <%= form.hidden_field :client_id, value: client.id %>
+    <%= form.text_field :message %>
+    <%= form.submit 'Написать клиенту' %>
+  <% end %>
+<% end %>
+  <% end %>
+</ul>
+
+<p>Текущий пользователь: <%= current_user.first_name %></p>
+<p>Роль: <%= current_user.role %></p>
+
+<% if current_user.role == "admin" %>
+  <!-- app/views/clients/new.html.erb -->
+  <h2>Создать нового клиента</h2>
+  <%= form_with model: @client, url: clients_path do |form| %>
+    <div>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+    <div>
+      <%= form.label :email %>
+      <%= form.email_field :email %>
+    </div>
+    <div>
+      <%= form.label :phone %>
+      <%= form.text_field :phone %>
+    </div>
+    <div>
+      <%= form.submit 'Создать' %>
+    </div>
+  <% end %>
+<% end %>
+<% else %>
+<h1>Список клиентов доступен только пользователям с ролью admin или support</h1>
+<% end %>

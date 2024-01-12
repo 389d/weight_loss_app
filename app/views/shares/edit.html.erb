@@ -1,10 +1,6 @@
-<% if can? :edit, Share %>
-<h1>Редактирование акции</h1>
+<h1>Редактирование домов</h1>
 
 <%= render 'form', share: @share %>
 
 <p><%= link_to 'Просмотреть', @share %></p>
 <p><%= link_to 'Назад', share_path %></p>
-	<% else %>
-	<h1>Страница доступна только Брокеру</h1>
-<% end %>
