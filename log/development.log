@@ -6204,3 +6204,447 @@ Processing by SharesController#index as HTML
 Completed 200 OK in 20ms (Views: 17.5ms | ActiveRecord: 0.4ms | Allocations: 4215)
 
 
+Started GET "/" for ::1 at 2024-01-17 21:08:23 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (7.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Redirected to http://[::1]:3000/users/sign_in
+Completed 302 Found in 87ms (ActiveRecord: 0.0ms | Allocations: 2300)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-01-17 21:08:24 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 642)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 226.1ms | Allocations: 3710)
+  Rendered layout layouts/application.html.erb (Duration: 853.0ms | Allocations: 39767)
+Completed 200 OK in 1531ms (Views: 1297.4ms | ActiveRecord: 57.5ms | Allocations: 59191)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-01-17 21:08:34 +0300
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 121)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 41.5ms | Allocations: 2188)
+  Rendered layout layouts/application.html.erb (Duration: 70.6ms | Allocations: 4185)
+Completed 200 OK in 227ms (Views: 134.4ms | ActiveRecord: 0.0ms | Allocations: 6440)
+
+
+Started POST "/users" for ::1 at 2024-01-17 21:08:40 +0300
+Processing by RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"Роман", "last_name"=>"Белюгин", "role"=>"buyer", "email"=>"Roman@tu", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (8.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "roman@tu"], ["LIMIT", 1]]
+  [1m[36mUser Create (14.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "role", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Роман"], ["last_name", "Белюгин"], ["email", "roman@tu"], ["role", "buyer"], ["created_at", "2024-01-17 18:08:41.181707"], ["updated_at", "2024-01-17 18:08:41.181707"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (2.0ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://[::1]:3000/users/shares
+Completed 303 See Other in 471ms (ActiveRecord: 25.5ms | Allocations: 11966)
+
+
+Started GET "/users/shares" for ::1 at 2024-01-17 21:08:41 +0300
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Processing by SharesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering shares/index.html.erb within layouts/application
+  [1m[36mShare Load (6.0ms)[0m  [1m[34mSELECT "shares".* FROM "shares"[0m
+  ↳ app/views/shares/index.html.erb:4
+  Rendered shares/index.html.erb within layouts/application (Duration: 70.0ms | Allocations: 9237)
+  Rendered layout layouts/application.html.erb (Duration: 87.5ms | Allocations: 11344)
+Completed 200 OK in 208ms (Views: 89.9ms | ActiveRecord: 9.7ms | Allocations: 12617)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-01-17 21:09:25 +0300
+Processing by RegistrationsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://[::1]:3000/users/shares
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms | Allocations: 1677)
+
+
+Started GET "/users/shares" for ::1 at 2024-01-17 21:09:25 +0300
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Processing by SharesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering shares/index.html.erb within layouts/application
+  [1m[36mShare Load (0.4ms)[0m  [1m[34mSELECT "shares".* FROM "shares"[0m
+  ↳ app/views/shares/index.html.erb:4
+  Rendered shares/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1777)
+  Rendered layout layouts/application.html.erb (Duration: 17.7ms | Allocations: 3808)
+Completed 200 OK in 22ms (Views: 18.3ms | ActiveRecord: 0.4ms | Allocations: 4085)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-01-17 21:09:28 +0300
+Processing by Devise::SessionsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Redirected to http://[::1]:3000/users/shares
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 5ms (ActiveRecord: 0.4ms | Allocations: 1597)
+
+
+Started GET "/users/shares" for ::1 at 2024-01-17 21:09:28 +0300
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Processing by SharesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering shares/index.html.erb within layouts/application
+  [1m[36mShare Load (0.5ms)[0m  [1m[34mSELECT "shares".* FROM "shares"[0m
+  ↳ app/views/shares/index.html.erb:4
+  Rendered shares/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1775)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 3772)
+Completed 200 OK in 20ms (Views: 17.1ms | ActiveRecord: 0.5ms | Allocations: 4047)
+
+
+Started POST "/shares/1/buy" for ::1 at 2024-01-17 21:09:30 +0300
+Processing by SharesController#buy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "share_id"=>"1", "buyer_name"=>"Роман", "commit"=>"Купить", "id"=>"1"}
+  [1m[36mShare Load (1.8ms)[0m  [1m[34mSELECT "shares".* FROM "shares" WHERE "shares"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:39:in `buy'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:40:in `buy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/shares_controller.rb:41:in `buy'
+  [1m[36mShare Update (7.9ms)[0m  [1m[33mUPDATE "shares" SET "updated_at" = $1, "owner" = $2 WHERE "shares"."id" = $3[0m  [["updated_at", "2024-01-17 18:09:30.701490"], ["owner", "Роман"], ["id", 1]]
+  ↳ app/controllers/shares_controller.rb:41:in `buy'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/shares_controller.rb:41:in `buy'
+Redirected to http://[::1]:3000/shares
+Completed 302 Found in 26ms (ActiveRecord: 11.1ms | Allocations: 4015)
+
+
+Started GET "/shares" for ::1 at 2024-01-17 21:09:30 +0300
+Processing by SharesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering shares/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shares/index.html.erb:1
+  [1m[36mShare Load (0.5ms)[0m  [1m[34mSELECT "shares".* FROM "shares"[0m
+  ↳ app/views/shares/index.html.erb:4
+  Rendered shares/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1611)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 3609)
+Completed 200 OK in 21ms (Views: 17.6ms | ActiveRecord: 0.7ms | Allocations: 3887)
+
+
+Started GET "/shares" for ::1 at 2024-01-17 21:09:32 +0300
+Processing by SharesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering shares/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/shares/index.html.erb:1
+  [1m[36mShare Load (0.3ms)[0m  [1m[34mSELECT "shares".* FROM "shares"[0m
+  ↳ app/views/shares/index.html.erb:4
+  Rendered shares/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1617)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 3614)
+Completed 200 OK in 29ms (Views: 22.5ms | ActiveRecord: 0.5ms | Allocations: 3887)
+
+
+Started GET "/users/shares" for ::1 at 2024-01-17 21:09:53 +0300
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Processing by SharesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering shares/index.html.erb within layouts/application
+  [1m[36mShare Load (0.4ms)[0m  [1m[34mSELECT "shares".* FROM "shares"[0m
+  ↳ app/views/shares/index.html.erb:4
+  Rendered shares/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 700)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | Allocations: 2697)
+Completed 200 OK in 28ms (Views: 24.6ms | ActiveRecord: 0.4ms | Allocations: 2970)
+
+
+Started GET "/" for ::1 at 2024-01-17 21:10:25 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+Redirected to http://[::1]:3000/users/shares
+Completed 302 Found in 279ms (ActiveRecord: 36.6ms | Allocations: 21704)
+
+
+Started GET "/users/shares" for ::1 at 2024-01-17 21:10:25 +0300
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+Processing by SharesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering shares/index.html.erb within layouts/application
+  [1m[36mShare Load (2.7ms)[0m  [1m[34mSELECT "shares".* FROM "shares"[0m
+  ↳ app/views/shares/index.html.erb:4
+  Rendered shares/index.html.erb within layouts/application (Duration: 26.0ms | Allocations: 8283)
+  Rendered layout layouts/application.html.erb (Duration: 219.4ms | Allocations: 44331)
+Completed 200 OK in 314ms (Views: 252.2ms | ActiveRecord: 5.6ms | Allocations: 49198)
+
+
+Started GET "/" for ::1 at 2024-01-17 21:10:36 +0300
+Processing by HomeController#index as HTML
+Redirected to http://[::1]:3000/users/sign_in
+Completed 302 Found in 13ms (ActiveRecord: 0.0ms | Allocations: 364)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-01-17 21:10:37 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.9ms | Allocations: 636)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 61.2ms | Allocations: 3453)
+  Rendered layout layouts/application.html.erb (Duration: 80.4ms | Allocations: 5521)
+Completed 200 OK in 142ms (Views: 132.9ms | ActiveRecord: 0.0ms | Allocations: 6945)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-01-17 21:10:42 +0300
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 121)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 15.8ms | Allocations: 2180)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | Allocations: 4176)
+Completed 200 OK in 66ms (Views: 60.2ms | ActiveRecord: 0.0ms | Allocations: 5260)
+
+
+Started POST "/users" for ::1 at 2024-01-17 21:11:17 +0300
+Processing by RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"Аркадий", "last_name"=>"Губец", "role"=>"broker", "email"=>"Arkgub@tru", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "arkgub@tru"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "email", "role", "created_at", "updated_at", "encrypted_password", "reset_password_token", "reset_password_sent_at", "remember_created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING "id"[0m  [["first_name", "Аркадий"], ["last_name", "Губец"], ["email", "arkgub@tru"], ["role", "broker"], ["created_at", "2024-01-17 18:11:17.372455"], ["updated_at", "2024-01-17 18:11:17.372455"], ["encrypted_password", "[FILTERED]"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["remember_created_at", nil]]
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://[::1]:3000/users/shares
+Completed 303 See Other in 262ms (ActiveRecord: 5.6ms | Allocations: 9067)
+
+
+Started GET "/users/shares" for ::1 at 2024-01-17 21:11:17 +0300
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Processing by SharesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering shares/index.html.erb within layouts/application
+  [1m[36mShare Load (0.5ms)[0m  [1m[34mSELECT "shares".* FROM "shares"[0m
+  ↳ app/views/shares/index.html.erb:4
+  Rendered shares/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 3079)
+  Rendered layout layouts/application.html.erb (Duration: 16.2ms | Allocations: 5078)
+Completed 200 OK in 20ms (Views: 16.9ms | ActiveRecord: 0.5ms | Allocations: 5393)
+
+
+Started DELETE "/shares/1" for ::1 at 2024-01-17 21:12:27 +0300
+Processing by SharesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"1"}
+  [1m[36mShare Load (3.5ms)[0m  [1m[34mSELECT "shares".* FROM "shares" WHERE "shares"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:53:in `destroy'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/shares_controller.rb:54:in `destroy'
+  [1m[36mShare Destroy (79.7ms)[0m  [1m[31mDELETE FROM "shares" WHERE "shares"."id" = $1[0m  [["id", 1]]
+  ↳ app/controllers/shares_controller.rb:54:in `destroy'
+  [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/shares_controller.rb:54:in `destroy'
+Redirected to http://[::1]:3000/shares
+Completed 302 Found in 99ms (ActiveRecord: 87.3ms | Allocations: 2866)
+
+
+Started GET "/shares" for ::1 at 2024-01-17 21:12:28 +0300
+Processing by SharesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering shares/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/shares/index.html.erb:1
+  [1m[36mShare Load (0.3ms)[0m  [1m[34mSELECT "shares".* FROM "shares"[0m
+  ↳ app/views/shares/index.html.erb:4
+  Rendered shares/index.html.erb within layouts/application (Duration: 9.7ms | Allocations: 3650)
+  Rendered layout layouts/application.html.erb (Duration: 32.3ms | Allocations: 5658)
+Completed 200 OK in 36ms (Views: 32.6ms | ActiveRecord: 0.6ms | Allocations: 5938)
+
+
+Started DELETE "/shares/2" for ::1 at 2024-01-17 21:12:28 +0300
+Processing by SharesController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "id"=>"2"}
+  [1m[36mShare Load (0.3ms)[0m  [1m[34mSELECT "shares".* FROM "shares" WHERE "shares"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:53:in `destroy'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/shares_controller.rb:54:in `destroy'
+  [1m[36mShare Destroy (1.7ms)[0m  [1m[31mDELETE FROM "shares" WHERE "shares"."id" = $1[0m  [["id", 2]]
+  ↳ app/controllers/shares_controller.rb:54:in `destroy'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/shares_controller.rb:54:in `destroy'
+Redirected to http://[::1]:3000/shares
+Completed 302 Found in 12ms (ActiveRecord: 4.0ms | Allocations: 1956)
+
+
+Started GET "/shares" for ::1 at 2024-01-17 21:12:29 +0300
+Processing by SharesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering shares/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/shares/index.html.erb:1
+  [1m[36mShare Load (0.2ms)[0m  [1m[34mSELECT "shares".* FROM "shares"[0m
+  ↳ app/views/shares/index.html.erb:4
+  Rendered shares/index.html.erb within layouts/application (Duration: 4.8ms | Allocations: 3406)
+  Rendered layout layouts/application.html.erb (Duration: 13.8ms | Allocations: 5412)
+Completed 200 OK in 17ms (Views: 14.2ms | ActiveRecord: 0.5ms | Allocations: 5690)
+
+
+Started POST "/shares" for ::1 at 2024-01-17 21:12:58 +0300
+Processing by SharesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "name"=>"Коттедж, 56 м², 4.5 сот.", "cost"=>"7 299 000 ₽", "commit"=>"Создать"}
+[31mUnpermitted parameters: :authenticity_token, :commit. Context: { controller: SharesController, action: create, request: #<ActionDispatch::Request:0x00000282c0638cc0>, params: {"authenticity_token"=>"[FILTERED]", "name"=>"Коттедж, 56 м², 4.5 сот.", "cost"=>"7 299 000 ₽", "commit"=>"Создать", "controller"=>"shares", "action"=>"create"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering shares/new.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/shares/new.html.erb:1
+  Rendered shares/_form.html.erb (Duration: 2.9ms | Allocations: 1827)
+  Rendered shares/new.html.erb within layouts/application (Duration: 59.4ms | Allocations: 2928)
+  Rendered layout layouts/application.html.erb (Duration: 75.2ms | Allocations: 4922)
+Completed 422 Unprocessable Entity in 107ms (Views: 101.9ms | ActiveRecord: 0.5ms | Allocations: 6821)
+
+
+Started POST "/shares" for ::1 at 2024-01-17 21:13:04 +0300
+Processing by SharesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "share"=>{"name"=>"Коттедж, 56 м², 4.5 сот.", "cost"=>"7 299 000 "}, "commit"=>"Создать Share"}
+[31mUnpermitted parameters: :authenticity_token, :share, :commit. Context: { controller: SharesController, action: create, request: #<ActionDispatch::Request:0x00000282c05015f0>, params: {"authenticity_token"=>"[FILTERED]", "share"=>{"name"=>"Коттедж, 56 м², 4.5 сот.", "cost"=>"7 299 000 "}, "commit"=>"Создать Share", "controller"=>"shares", "action"=>"create"} }[0m
+  Rendering layout layouts/application.html.erb
+  Rendering shares/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/shares/new.html.erb:1
+  Rendered shares/_form.html.erb (Duration: 3.8ms | Allocations: 2861)
+  Rendered shares/new.html.erb within layouts/application (Duration: 7.0ms | Allocations: 3645)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | Allocations: 5638)
+Completed 422 Unprocessable Entity in 26ms (Views: 21.7ms | ActiveRecord: 0.2ms | Allocations: 7216)
+
+
+Started GET "/shares" for ::1 at 2024-01-17 21:13:08 +0300
+Processing by SharesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering shares/index.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/shares/index.html.erb:1
+  [1m[36mShare Load (0.3ms)[0m  [1m[34mSELECT "shares".* FROM "shares"[0m
+  ↳ app/views/shares/index.html.erb:4
+  Rendered shares/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 3414)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | Allocations: 5411)
+Completed 200 OK in 26ms (Views: 21.2ms | ActiveRecord: 0.5ms | Allocations: 5686)
+
+
+Started POST "/shares" for ::1 at 2024-01-17 21:14:20 +0300
+Processing by SharesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "name"=>"Коттедж", "cost"=>"7399000", "commit"=>"Создать"}
+[31mUnpermitted parameters: :authenticity_token, :commit. Context: { controller: SharesController, action: create, request: #<ActionDispatch::Request:0x00000282c01b21d8>, params: {"authenticity_token"=>"[FILTERED]", "name"=>"Коттедж", "cost"=>"7399000", "commit"=>"Создать", "controller"=>"shares", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/shares_controller.rb:18:in `create'
+  [1m[36mShare Create (5.0ms)[0m  [1m[32mINSERT INTO "shares" ("name", "email", "phone", "created_at", "updated_at", "cost", "owner") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Коттедж"], ["email", nil], ["phone", nil], ["created_at", "2024-01-17 18:14:20.873694"], ["updated_at", "2024-01-17 18:14:20.873694"], ["cost", "7399000.0"], ["owner", nil]]
+  ↳ app/controllers/shares_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/shares_controller.rb:18:in `create'
+Redirected to http://[::1]:3000/shares/3
+Completed 302 Found in 18ms (ActiveRecord: 6.1ms | Allocations: 2185)
+
+
+Started GET "/shares/3" for ::1 at 2024-01-17 21:14:20 +0300
+Processing by SharesController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mShare Load (0.3ms)[0m  [1m[34mSELECT "shares".* FROM "shares" WHERE "shares"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering shares/show.html.erb within layouts/application
+  Rendered shares/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 229)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 2451)
+Completed 200 OK in 40ms (Views: 12.7ms | ActiveRecord: 0.3ms | Allocations: 3218)
+
+
+Started GET "/shares/3" for ::1 at 2024-01-17 21:14:23 +0300
+Processing by SharesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mShare Load (0.3ms)[0m  [1m[34mSELECT "shares".* FROM "shares" WHERE "shares"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering shares/show.html.erb within layouts/application
+  Rendered shares/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 2309)
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 0.3ms | Allocations: 3010)
+
+
+Started GET "/shares/3" for ::1 at 2024-01-17 21:14:27 +0300
+Processing by SharesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mShare Load (0.3ms)[0m  [1m[34mSELECT "shares".* FROM "shares" WHERE "shares"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering shares/show.html.erb within layouts/application
+  Rendered shares/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 2301)
+Completed 200 OK in 17ms (Views: 12.1ms | ActiveRecord: 0.3ms | Allocations: 3002)
+
+
+Started GET "/shares/3" for ::1 at 2024-01-17 21:14:29 +0300
+Processing by SharesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mShare Load (0.3ms)[0m  [1m[34mSELECT "shares".* FROM "shares" WHERE "shares"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering shares/show.html.erb within layouts/application
+  Rendered shares/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 2339)
+Completed 200 OK in 17ms (Views: 12.2ms | ActiveRecord: 0.3ms | Allocations: 3041)
+
+
+Started GET "/shares/3" for ::1 at 2024-01-17 21:14:44 +0300
+Processing by SharesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mShare Load (0.2ms)[0m  [1m[34mSELECT "shares".* FROM "shares" WHERE "shares"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering shares/show.html.erb within layouts/application
+  Rendered shares/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 2315)
+Completed 200 OK in 14ms (Views: 10.2ms | ActiveRecord: 0.2ms | Allocations: 3017)
+
+
+Started GET "/shares/3/edit" for ::1 at 2024-01-17 21:14:46 +0300
+Processing by SharesController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mShare Load (0.3ms)[0m  [1m[34mSELECT "shares".* FROM "shares" WHERE "shares"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:26:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering shares/edit.html.erb within layouts/application
+  Rendered shares/_form.html.erb (Duration: 1.9ms | Allocations: 824)
+  Rendered shares/edit.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1081)
+  Rendered layout layouts/application.html.erb (Duration: 17.6ms | Allocations: 3074)
+Completed 200 OK in 57ms (Views: 18.7ms | ActiveRecord: 0.3ms | Allocations: 3837)
+
+
+Started PATCH "/shares/3" for ::1 at 2024-01-17 21:15:46 +0300
+Processing by SharesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "share"=>{"name"=>"Коттедж", "cost"=>"7399000.0"}, "commit"=>"Сохранить Share", "id"=>"3"}
+  [1m[36mShare Load (0.2ms)[0m  [1m[34mSELECT "shares".* FROM "shares" WHERE "shares"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:30:in `update'
+Redirected to http://[::1]:3000/shares/3
+Completed 302 Found in 8ms (ActiveRecord: 0.2ms | Allocations: 1100)
+
+
+Started GET "/shares/3" for ::1 at 2024-01-17 21:15:46 +0300
+Processing by SharesController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mShare Load (0.2ms)[0m  [1m[34mSELECT "shares".* FROM "shares" WHERE "shares"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering shares/show.html.erb within layouts/application
+  Rendered shares/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 14.8ms | Allocations: 2305)
+Completed 200 OK in 20ms (Views: 16.2ms | ActiveRecord: 0.2ms | Allocations: 3011)
+
+
+Started GET "/shares/3" for ::1 at 2024-01-17 21:15:48 +0300
+Processing by SharesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mShare Load (0.2ms)[0m  [1m[34mSELECT "shares".* FROM "shares" WHERE "shares"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering shares/show.html.erb within layouts/application
+  Rendered shares/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 7.3ms | Allocations: 2309)
+Completed 200 OK in 12ms (Views: 7.9ms | ActiveRecord: 0.2ms | Allocations: 3010)
+
+
+Started GET "/shares/3" for ::1 at 2024-01-17 21:15:49 +0300
+Processing by SharesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mShare Load (0.3ms)[0m  [1m[34mSELECT "shares".* FROM "shares" WHERE "shares"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/shares_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering shares/show.html.erb within layouts/application
+  Rendered shares/show.html.erb within layouts/application (Duration: 0.5ms | Allocations: 88)
+  Rendered layout layouts/application.html.erb (Duration: 12.1ms | Allocations: 2348)
+Completed 200 OK in 17ms (Views: 13.1ms | ActiveRecord: 0.3ms | Allocations: 3048)
+
+
