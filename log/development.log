@@ -7539,3 +7539,24 @@ Processing by SharesController#index as HTML
 Completed 200 OK in 28ms (Views: 20.3ms | ActiveRecord: 0.4ms | Allocations: 6611)
 
 
+Started GET "/" for ::1 at 2024-01-18 14:49:02 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (16.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  [1m[36mUser Load (9.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/home_controller.rb:3:in `index'
+Redirected to http://[::1]:3000/users/shares
+Completed 302 Found in 865ms (ActiveRecord: 87.2ms | Allocations: 22238)
+
+
+Started GET "/users/shares" for ::1 at 2024-01-18 14:49:05 +0300
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+Processing by SharesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering shares/index.html.erb within layouts/application
+  [1m[36mShare Load (6.1ms)[0m  [1m[34mSELECT "shares".* FROM "shares"[0m
+  ↳ app/views/shares/index.html.erb:4
+  Rendered shares/index.html.erb within layouts/application (Duration: 128.4ms | Allocations: 10811)
+  Rendered layout layouts/application.html.erb (Duration: 1043.8ms | Allocations: 46917)
+Completed 200 OK in 1704ms (Views: 1150.6ms | ActiveRecord: 12.8ms | Allocations: 51787)
+
+
