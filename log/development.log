@@ -7808,3 +7808,639 @@ Processing by Devise::SessionsController#new as TURBO_STREAM
 Completed 200 OK in 42ms (Views: 33.0ms | ActiveRecord: 0.0ms | Allocations: 3413)
 
 
+Started GET "/" for ::1 at 2024-03-21 17:03:08 +0300
+  [1m[36mActiveRecord::SchemaMigration Load (8.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+Redirected to http://[::1]:3000/users/sign_in
+Completed 302 Found in 25ms (ActiveRecord: 0.0ms | Allocations: 2300)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-03-21 17:03:08 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 642)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 27.5ms | Allocations: 3709)
+  Rendered layout layouts/application.html.erb (Duration: 180.2ms | Allocations: 39749)
+Completed 200 OK in 442ms (Views: 236.9ms | ActiveRecord: 54.1ms | Allocations: 59174)
+
+
+Started GET "/users/password/new" for ::1 at 2024-03-21 17:03:17 +0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.8ms | Allocations: 209)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 200)
+  Rendered C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1239)
+  Rendered layout layouts/application.html.erb (Duration: 30.0ms | Allocations: 3220)
+Completed 200 OK in 72ms (Views: 41.3ms | ActiveRecord: 0.0ms | Allocations: 5472)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-03-21 17:03:19 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 959)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 2953)
+Completed 200 OK in 23ms (Views: 17.6ms | ActiveRecord: 0.0ms | Allocations: 3574)
+
+
+Started GET "/users/sign_up" for ::1 at 2024-03-21 17:03:20 +0300
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.2ms | Allocations: 116)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 17.7ms | Allocations: 2182)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | Allocations: 4179)
+Completed 200 OK in 62ms (Views: 57.3ms | ActiveRecord: 0.0ms | Allocations: 5253)
+
+
+Started POST "/users" for ::1 at 2024-03-21 17:03:26 +0300
+Processing by RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"Rozi", "last_name"=>"Brot", "role"=>"broker", "email"=>"roz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (9.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "roz@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.6ms | Allocations: 110)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 7.1ms | Allocations: 1770)
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | Allocations: 3763)
+Completed 422 Unprocessable Entity in 145ms (Views: 27.4ms | ActiveRecord: 11.9ms | Allocations: 12876)
+
+
+Started GET "/users/sign_in" for ::1 at 2024-03-21 17:03:27 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 959)
+  Rendered layout layouts/application.html.erb (Duration: 24.0ms | Allocations: 2962)
+Completed 200 OK in 30ms (Views: 25.2ms | ActiveRecord: 0.0ms | Allocations: 3583)
+
+
+Started POST "/users/sign_in" for ::1 at 2024-03-21 17:03:31 +0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 4ms (ActiveRecord: 0.0ms | Allocations: 459)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 2.6ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 952)
+  Rendered layout layouts/application.html.erb (Duration: 18.2ms | Allocations: 2959)
+Completed 200 OK in 26ms (Views: 21.9ms | ActiveRecord: 0.0ms | Allocations: 3436)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-21 17:03:39 +0300
+Processing by HomeController#index as HTML
+Redirected to http://127.0.0.1:3000/users/sign_in
+Completed 302 Found in 11ms (ActiveRecord: 0.0ms | Allocations: 270)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:03:39 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 962)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 2957)
+Completed 200 OK in 22ms (Views: 17.9ms | ActiveRecord: 0.0ms | Allocations: 3464)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-03-21 17:03:42 +0300
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 110)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1279)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 3272)
+Completed 200 OK in 17ms (Views: 13.2ms | ActiveRecord: 0.0ms | Allocations: 3868)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-03-21 17:03:50 +0300
+Processing by RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"Rozi", "last_name"=>"", "role"=>"buyer", "email"=>"", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 110)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 3037)
+  Rendered layout layouts/application.html.erb (Duration: 20.8ms | Allocations: 5030)
+Completed 422 Unprocessable Entity in 29ms (Views: 22.5ms | ActiveRecord: 0.0ms | Allocations: 6962)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:03:52 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 959)
+  Rendered layout layouts/application.html.erb (Duration: 13.9ms | Allocations: 2952)
+Completed 200 OK in 20ms (Views: 14.9ms | ActiveRecord: 0.0ms | Allocations: 3567)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:03:53 +0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+Completed 401 Unauthorized in 5ms (ActiveRecord: 0.0ms | Allocations: 416)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 949)
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | Allocations: 2942)
+Completed 200 OK in 31ms (Views: 25.4ms | ActiveRecord: 0.0ms | Allocations: 3412)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-21 17:04:33 +0300
+Processing by HomeController#index as HTML
+Redirected to http://127.0.0.1:3000/users/sign_in
+Completed 302 Found in 9ms (ActiveRecord: 0.0ms | Allocations: 270)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:04:33 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 962)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 2955)
+Completed 200 OK in 22ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 3462)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-03-21 17:04:38 +0300
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 110)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1275)
+  Rendered layout layouts/application.html.erb (Duration: 21.7ms | Allocations: 3268)
+Completed 200 OK in 27ms (Views: 22.8ms | ActiveRecord: 0.0ms | Allocations: 3890)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-03-21 17:04:50 +0300
+Processing by RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"Rozi", "last_name"=>"Brot", "role"=>"broker", "email"=>"roz@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (2.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "roz@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 110)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1727)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | Allocations: 3720)
+Completed 422 Unprocessable Entity in 588ms (Views: 26.8ms | ActiveRecord: 3.2ms | Allocations: 19414)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:04:52 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 959)
+  Rendered layout layouts/application.html.erb (Duration: 16.9ms | Allocations: 2953)
+Completed 200 OK in 22ms (Views: 18.1ms | ActiveRecord: 0.0ms | Allocations: 3589)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:05:09 +0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "roz@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 19ms (ActiveRecord: 0.9ms | Allocations: 2013)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 951)
+  Rendered layout layouts/application.html.erb (Duration: 21.6ms | Allocations: 2978)
+Completed 200 OK in 365ms (Views: 23.0ms | ActiveRecord: 0.0ms | Allocations: 3487)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:05:11 +0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "roz@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 9ms (ActiveRecord: 0.5ms | Allocations: 1539)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.5ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 950)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | Allocations: 2972)
+Completed 200 OK in 380ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 3479)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:05:22 +0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "roz@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.4ms | Allocations: 1551)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 950)
+  Rendered layout layouts/application.html.erb (Duration: 18.1ms | Allocations: 2943)
+Completed 200 OK in 353ms (Views: 19.5ms | ActiveRecord: 0.0ms | Allocations: 3448)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2024-03-21 17:05:24 +0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 188)
+  Rendered C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 717)
+  Rendered layout layouts/application.html.erb (Duration: 18.4ms | Allocations: 2695)
+Completed 200 OK in 26ms (Views: 20.7ms | ActiveRecord: 0.0ms | Allocations: 3273)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-03-21 17:05:26 +0300
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 110)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1286)
+  Rendered layout layouts/application.html.erb (Duration: 17.8ms | Allocations: 3279)
+Completed 200 OK in 23ms (Views: 19.1ms | ActiveRecord: 0.0ms | Allocations: 3887)
+
+
+Started POST "/users" for 127.0.0.1 at 2024-03-21 17:06:27 +0300
+Processing by RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"first_name"=>"Шон", "last_name"=>"Бутовский", "role"=>"broker", "email"=>"Shoon@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (2.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "shoon@gmail.com"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[31mROLLBACK[0m
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 110)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 2135)
+  Rendered layout layouts/application.html.erb (Duration: 16.0ms | Allocations: 4128)
+Completed 422 Unprocessable Entity in 381ms (Views: 19.1ms | ActiveRecord: 3.3ms | Allocations: 9090)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:06:29 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 959)
+  Rendered layout layouts/application.html.erb (Duration: 14.1ms | Allocations: 2952)
+Completed 200 OK in 20ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 3567)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:06:31 +0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "roz@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 8ms (ActiveRecord: 0.4ms | Allocations: 1533)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 950)
+  Rendered layout layouts/application.html.erb (Duration: 12.7ms | Allocations: 2943)
+Completed 200 OK in 350ms (Views: 13.9ms | ActiveRecord: 0.0ms | Allocations: 3448)
+
+
+Started GET "/" for 127.0.0.1 at 2024-03-21 17:06:57 +0300
+Processing by HomeController#index as HTML
+Redirected to http://127.0.0.1:3000/users/sign_in
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 270)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:06:57 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 962)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | Allocations: 2955)
+Completed 200 OK in 19ms (Views: 16.2ms | ActiveRecord: 0.0ms | Allocations: 3462)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:06:59 +0300
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "roz@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 6ms (ActiveRecord: 0.3ms | Allocations: 1509)
+
+
+Processing by Devise::SessionsController#new as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 949)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 2942)
+Completed 200 OK in 254ms (Views: 10.5ms | ActiveRecord: 0.0ms | Allocations: 3449)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-03-21 17:07:00 +0300
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 110)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1281)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | Allocations: 3309)
+Completed 200 OK in 17ms (Views: 12.9ms | ActiveRecord: 0.0ms | Allocations: 3953)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:07:06 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 959)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 2973)
+Completed 200 OK in 20ms (Views: 15.8ms | ActiveRecord: 0.0ms | Allocations: 3594)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2024-03-21 17:07:08 +0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.1ms | Allocations: 13)
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 188)
+  Rendered C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application (Duration: 3.7ms | Allocations: 717)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | Allocations: 2698)
+Completed 200 OK in 32ms (Views: 24.0ms | ActiveRecord: 0.0ms | Allocations: 3276)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2024-03-21 17:07:09 +0300
+Processing by Devise::PasswordsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>""}, "commit"=>"Send me reset password instructions"}
+  Rendering layout layouts/application.html.erb
+  Rendering C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.6ms | Allocations: 378)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 188)
+  Rendered C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1519)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 3496)
+Completed 422 Unprocessable Entity in 37ms (Views: 20.4ms | ActiveRecord: 0.0ms | Allocations: 4919)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2024-03-21 17:07:12 +0300
+Processing by Devise::PasswordsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "roz@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.9ms | Allocations: 407)
+  Rendered devise/shared/_links.html.erb (Duration: 0.7ms | Allocations: 188)
+  Rendered C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1549)
+  Rendered layout layouts/application.html.erb (Duration: 30.0ms | Allocations: 3526)
+Completed 422 Unprocessable Entity in 40ms (Views: 31.2ms | ActiveRecord: 0.4ms | Allocations: 5894)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2024-03-21 17:07:15 +0300
+Processing by Devise::PasswordsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"roz@gmail.com"}, "commit"=>"Send me reset password instructions"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "roz@gmail.com"], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.7ms | Allocations: 355)
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 188)
+  Rendered C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1497)
+  Rendered layout layouts/application.html.erb (Duration: 18.6ms | Allocations: 3474)
+Completed 422 Unprocessable Entity in 28ms (Views: 20.1ms | ActiveRecord: 0.3ms | Allocations: 5841)
+
+
+Started POST "/users/password" for 127.0.0.1 at 2024-03-21 17:07:20 +0300
+Processing by Devise::PasswordsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"cat.red.00.00@mail.ru"}, "commit"=>"Send me reset password instructions"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "cat.red.00.00@mail.ru"], ["LIMIT", 1]]
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."reset_password_token" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["reset_password_token", "[FILTERED]"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Update (17.4ms)[0m  [1m[33mUPDATE "users" SET "updated_at" = $1, "reset_password_token" = $2, "reset_password_sent_at" = $3 WHERE "users"."id" = $4[0m  [["updated_at", "2024-03-21 14:07:21.281336"], ["reset_password_token", "[FILTERED]"], ["reset_password_sent_at", "[FILTERED]"], ["id", 1]]
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[35mCOMMIT[0m
+  Rendering C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/mailer/reset_password_instructions.html.erb
+  Rendered C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/mailer/reset_password_instructions.html.erb (Duration: 1.4ms | Allocations: 1340)
+Devise::Mailer#reset_password_instructions: processed outbound mail in 58.7ms
+Completed 500 Internal Server Error in 978ms (ActiveRecord: 23.8ms | Allocations: 33806)
+
+
+  
+ActionView::Template::Error (Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true):
+    2: 
+    3: <p>Someone has requested a link to change your password. You can do this through the link below.</p>
+    4: 
+    5: <p><%= link_to 'Change my password', edit_password_url(@resource, reset_password_token: @token) %></p>
+    6: 
+    7: <p>If you didn't request this, please ignore this email.</p>
+    8: <p>Your password won't change until you access the link above and create a new one.</p>
+  
+actionpack (7.1.2) lib/action_dispatch/http/url.rb:64:in `full_url_for'
+actionpack (7.1.2) lib/action_dispatch/http/url.rb:54:in `url_for'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:334:in `block in <class:RouteSet>'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:876:in `url_for'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:271:in `call'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:214:in `call'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:327:in `block in define_url_helper'
+actionpack (7.1.2) lib/action_dispatch/routing/routes_proxy.rb:45:in `edit_user_password_url'
+actionpack (7.1.2) lib/action_dispatch/routing/routes_proxy.rb:48:in `public_send'
+actionpack (7.1.2) lib/action_dispatch/routing/routes_proxy.rb:48:in `method_missing'
+devise (4.9.3) lib/devise/controllers/url_helpers.rb:53:in `block (4 levels) in generate_helpers!'
+devise (4.9.3) app/views/devise/mailer/reset_password_instructions.html.erb:5
+actionview (7.1.2) lib/action_view/base.rb:264:in `public_send'
+actionview (7.1.2) lib/action_view/base.rb:264:in `_run'
+actionview (7.1.2) lib/action_view/template.rb:261:in `block in render'
+activesupport (7.1.2) lib/active_support/notifications.rb:208:in `instrument'
+actionview (7.1.2) lib/action_view/template.rb:549:in `instrument_render_template'
+actionview (7.1.2) lib/action_view/template.rb:249:in `render'
+actionview (7.1.2) lib/action_view/renderer/template_renderer.rb:66:in `block (2 levels) in render_template'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `instrument'
+actionview (7.1.2) lib/action_view/renderer/template_renderer.rb:60:in `block in render_template'
+actionview (7.1.2) lib/action_view/renderer/template_renderer.rb:80:in `render_with_layout'
+actionview (7.1.2) lib/action_view/renderer/template_renderer.rb:59:in `render_template'
+actionview (7.1.2) lib/action_view/renderer/template_renderer.rb:11:in `render'
+actionview (7.1.2) lib/action_view/renderer/renderer.rb:63:in `render_template_to_object'
+actionview (7.1.2) lib/action_view/renderer/renderer.rb:31:in `render_to_object'
+actionview (7.1.2) lib/action_view/rendering.rb:135:in `block in _render_template'
+actionview (7.1.2) lib/action_view/base.rb:291:in `in_rendering_context'
+actionview (7.1.2) lib/action_view/rendering.rb:134:in `_render_template'
+actionview (7.1.2) lib/action_view/rendering.rb:121:in `render_to_body'
+actionpack (7.1.2) lib/abstract_controller/rendering.rb:27:in `render'
+actionmailer (7.1.2) lib/action_mailer/base.rb:1004:in `block in collect_responses_from_templates'
+actionmailer (7.1.2) lib/action_mailer/base.rb:1001:in `each'
+actionmailer (7.1.2) lib/action_mailer/base.rb:1001:in `each'
+actionmailer (7.1.2) lib/action_mailer/base.rb:1001:in `map'
+actionmailer (7.1.2) lib/action_mailer/base.rb:1001:in `collect_responses_from_templates'
+actionmailer (7.1.2) lib/action_mailer/base.rb:979:in `collect_responses'
+actionmailer (7.1.2) lib/action_mailer/base.rb:887:in `mail'
+devise (4.9.3) lib/devise/mailers/helpers.rb:19:in `devise_mail'
+devise (4.9.3) app/mailers/devise/mailer.rb:14:in `reset_password_instructions'
+actionpack (7.1.2) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.2) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+actiontext (7.1.2) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.2) lib/abstract_controller/base.rb:160:in `process'
+actionmailer (7.1.2) lib/action_mailer/rescuable.rb:29:in `block in process'
+actionmailer (7.1.2) lib/action_mailer/rescuable.rb:21:in `handle_exceptions'
+actionmailer (7.1.2) lib/action_mailer/rescuable.rb:28:in `process'
+actionview (7.1.2) lib/action_view/rendering.rb:40:in `process'
+actionmailer (7.1.2) lib/action_mailer/base.rb:658:in `block in process'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `instrument'
+actionmailer (7.1.2) lib/action_mailer/base.rb:657:in `process'
+actionmailer (7.1.2) lib/action_mailer/message_delivery.rb:136:in `block in processed_mailer'
+<internal:kernel>:90:in `tap'
+actionmailer (7.1.2) lib/action_mailer/message_delivery.rb:135:in `processed_mailer'
+actionmailer (7.1.2) lib/action_mailer/message_delivery.rb:124:in `deliver_now'
+devise (4.9.3) lib/devise/models/authenticatable.rb:204:in `send_devise_notification'
+devise (4.9.3) lib/devise/models/recoverable.rb:99:in `send_reset_password_instructions_notification'
+devise (4.9.3) lib/devise/models/recoverable.rb:52:in `send_reset_password_instructions'
+devise (4.9.3) lib/devise/models/recoverable.rb:125:in `send_reset_password_instructions'
+devise (4.9.3) app/controllers/devise/passwords_controller.rb:15:in `create'
+actionpack (7.1.2) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.1.2) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.2) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+actiontext (7.1.2) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.2) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.2) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.2) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.2) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.2) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.2) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.2) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.2) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.2) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.2) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.2) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.2) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.2) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.2) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/mapper.rb:21:in `block in <class:Constraints>'
+actionpack (7.1.2) lib/action_dispatch/routing/mapper.rb:51:in `serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.2) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.2) lib/action_dispatch/routing/route_set.rb:882:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:43:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.2) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.2) lib/active_record/migration.rb:654:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.2) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.2) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.2) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.2) lib/active_support/broadcast_logger.rb:240:in `method_missing'
+railties (7.1.2) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.2) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.2) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.2) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:07:27 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 965)
+  Rendered layout layouts/application.html.erb (Duration: 19.1ms | Allocations: 2993)
+Completed 200 OK in 25ms (Views: 20.2ms | ActiveRecord: 0.0ms | Allocations: 3625)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2024-03-21 17:07:28 +0300
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 191)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 959)
+  Rendered layout layouts/application.html.erb (Duration: 13.0ms | Allocations: 2952)
+Completed 200 OK in 19ms (Views: 14.1ms | ActiveRecord: 0.0ms | Allocations: 3562)
+
+
+Started GET "/users/password/new" for 127.0.0.1 at 2024-03-21 17:07:30 +0300
+Processing by Devise::PasswordsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.0ms | Allocations: 13)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 188)
+  Rendered C:/Users/petuh/Ruby32-x64/lib/ruby/gems/3.2.0/gems/devise-4.9.3/app/views/devise/passwords/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 718)
+  Rendered layout layouts/application.html.erb (Duration: 14.4ms | Allocations: 2695)
+Completed 200 OK in 20ms (Views: 15.6ms | ActiveRecord: 0.0ms | Allocations: 3279)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2024-03-21 17:07:32 +0300
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 110)
+  Rendered registrations/new.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1287)
+  Rendered layout layouts/application.html.erb (Duration: 18.3ms | Allocations: 3280)
+Completed 200 OK in 24ms (Views: 19.9ms | ActiveRecord: 0.0ms | Allocations: 3891)
+
+
