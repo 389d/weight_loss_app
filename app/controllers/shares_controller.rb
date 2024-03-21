@@ -16,7 +16,7 @@ class SharesController < ApplicationController
 
     
     if @share.save
-      redirect_to @share, notice: 'Статья о недвижимости успешно создана.' # Перенаправление на страницу списка домов с сообщением об успехе
+      redirect_to @share, notice: 'Статья о фитнесе успешно создана.' # Перенаправление на страницу списка домов с сообщением об успехе
     else
       render :new, status: 422
     end
@@ -29,7 +29,7 @@ class SharesController < ApplicationController
   def update
     @share = Share.find(params[:id])
     if @share.update(share_params)
-      redirect_to @share, notice: 'Статья о недвижимости успешно создана.'
+      redirect_to @share, notice: 'Статья о фитнесе успешно создана.'
     else
       render :edit
     end
@@ -39,14 +39,14 @@ class SharesController < ApplicationController
     @share = Share.find(params[:id])
     @share.owner = current_user.first_name
     @share.save
-    redirect_to shares_path, notice: 'Квартира успешно куплена.'
+    redirect_to shares_path, notice: 'Уроки по фитнесу успешно куплены.'
   end
 
   def sell
     @share = Share.find(params[:id])
     @share.owner = nil
     @share.save
-    redirect_to shares_path, notice: 'Дом успешно продан.'
+    redirect_to shares_path, notice: 'Уроки по фитнесу успешно куплены.'
   end
 
   def destroy
